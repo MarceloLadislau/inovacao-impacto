@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniforme Conecta - Escolas Militarizadas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Cabeçalho -->
+    <header class="bg-blue-900 text-white shadow-md">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide">🛡️ Uniforme Conecta</h1>
+            <span class="text-xs bg-blue-800 px-3 py-1 rounded-full text-blue-200">Economia Circular Escolar</span>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+        
+        <!-- Apresentação / Justificativa -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8 text-center">
+            <h2 class="text-2xl font-bold text-blue-900 mb-2">Transforme, Compartilhe, Economize!</h2>
+            <p class="text-slate-600 text-sm max-w-xl mx-auto">
+                Conectando famílias para doar, vender e pesquisar preços de fardamentos escolares com facilidade, promovendo sustentabilidade e economia circular.
+            </p>
+        </div>
+
+        <!-- Abas de Navegação -->
+        <div class="flex justify-center mb-6">
+            <div class="inline-flex bg-slate-200 p-1 rounded-lg gap-1">
+                <button onclick="mudarAba('doar')" id="btn-doar" class="px-5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm">💚 Doar</button>
+                <button onclick="mudarAba('vender')" id="btn-vender" class="px-5 py-2 rounded-md font-medium text-sm transition text-slate-600">🏷️ Vender</button>
+                <button onclick="mudarAba('pesquisar')" id="btn-pesquisar" class="px-5 py-2 rounded-md font-medium text-sm transition text-slate-600">🔍 Pesquisar Preços</button>
+            </div>
+        </div>
+
+        <!-- Formulário de Cadastro -->
+        <div id="secao-formulario" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+            <h3 id="form-titulo" class="text-lg font-semibold text-blue-900 mb-4">Cadastrar Fardamento para Doação</h3>
+            
+            <form id="form-anuncio" onsubmit="salvarItem(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="hidden" id="modo-operacao" value="Doação">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Seu Nome / Responsável</label>
+                    <input type="text" id="nome" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: Ana Souza">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Nome da Escola Militarizada</label>
+                    <input type="text" id="escola" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: Colégio Militar / CMPM">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Tipo de Peça</label>
+                    <select id="tipo" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white">
+                        <option value="Camisa / Gandola">Camisa / Gandola</option>
+                        <option value="Calça / Saia">Calça / Saia</option>
+                        <option value="Cobertura (Boina/Chapéu)">Cobertura (Boina / Chapéu)</option>
+                        <option value="Calçado / Coturno">Calçado / Coturno</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Tamanho</label>
+                    <input type="text" id="tamanho" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: 14, P, M, 38">
+                </div>
+                <div id="campo-preco" class="hidden">
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Preço (R$)</label>
+                    <input type="text" id="preco" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: 30,00">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Contato (WhatsApp)</label>
+                    <input type="text" id="contato" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: (92) 99999-9999">
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" class="w-full bg-blue-900 text-white font-medium py-2.5 rounded-lg hover:bg-blue-800 transition text-sm">Publicar na Plataforma</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Mural de Anúncios -->
+        <div>
+            <h3 class="text-lg font-semibold text-blue-900 mb-4">Mural de Oportunidades</h3>
+            <div id="lista-itens" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Itens dinâmicos -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-white border-t border-slate-200 py-4 mt-8 text-center text-xs text-slate-500">
+        Inovação e Impacto: Transformando realidades através do empreendedorismo social.
+    </footer>
+
+    <script>
+        let itens = JSON.parse(localStorage.getItem('uniforme_conecta')) || [
+            { id: 1, modo: "Doação", nome: "Sgt. Carlos", escola: "Colégio Militar", tipo: "Camisa / Gandola", tamanho: "M", preco: "", contato: "(92) 98888-7777" },
+            { id: 2, modo: "Venda", nome: "Maria Helena", escola: "CMPM", tipo: "Calça / Saia", tamanho: "38", preco: "25,00", contato: "(92) 97777-6666" }
+        ];
+
+        function renderizarItens() {
+            const container = document.getElementById('lista-itens');
+            container.innerHTML = '';
+
+            if (itens.length === 0) {
+                container.innerHTML = `<p class="text-slate-500 text-sm md:col-span-2 text-center py-6">Nenhum item cadastrado no momento.</p>`;
+                return;
+            }
+
+            itens.forEach(item => {
+                let badgeColor = item.modo === 'Doação' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800';
+                let infoPreco = item.modo === 'Venda' ? `<p class="text-xs font-bold text-blue-900 mb-2">Preço: R$ ${item.preco}</p>` : '';
+
+                container.innerHTML += `
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="${badgeColor} text-xs font-semibold px-2.5 py-0.5 rounded">${item.modo}</span>
+                                <span class="text-xs font-bold text-slate-500">Tam: ${item.tamanho}</span>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base mb-1">${item.tipo}</h4>
+                            <p class="text-xs text-slate-600 mb-1">Escola: ${item.escola} (${item.nome})</p>
+                            ${infoPreco}
+                        </div>
+                        <a href="https://api.whatsapp.com/send?phone=55${item.contato.replace(/\D/g,'')}&text=Olá! Vi seu anúncio no Uniforme Conecta sobre ${item.tipo} (${item.modo}). Ainda está disponível?" target="_blank" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2 rounded-lg transition mt-3">
+                            💬 Negociar via WhatsApp
+                        </a>
+                    </div>
+                `;
+            });
+        }
+
+        function salvarItem(event) {
+            event.preventDefault();
+            const modo = document.getElementById('modo-operacao').value;
+            
+            const novoItem = {
+                id: Date.now(),
+                modo: modo,
+                nome: document.getElementById('nome').value,
+                escola: document.getElementById('escola').value,
+                tipo: document.getElementById('tipo').value,
+                tamanho: document.getElementById('tamanho').value,
+                preco: modo === 'Venda' ? document.getElementById('preco').value : '',
+                contato: document.getElementById('contato').value
+            };
+
+            itens.unshift(novoItem);
+            localStorage.setItem('uniforme_conecta', JSON.stringify(itens));
+            document.getElementById('form-anuncio').reset();
+            mudarAba('doar');
+            renderizarItens();
+            alert('Anúncio publicado com sucesso!');
+        }
+
+        function mudarAba(tipo) {
+            const btnDoar = document.getElementById('btn-doar');
+            const btnVender = document.getElementById('btn-vender');
+            const btnPesquisar = document.getElementById('btn-pesquisar');
+            const titulo = document.getElementById('form-titulo');
+            const campoPreco = document.getElementById('campo-preco');
+            const modoOp = document.getElementById('modo-operacao');
+
+            btnDoar.className = "px-5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnVender.className = "px-5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnPesquisar.className = "px-5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            campoPreco.classList.add('hidden');
+
+            if (tipo === 'doar') {
+                btnDoar.className = "px-5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                titulo.innerText = "Cadastrar Fardamento para Doação";
+                modoOp.value = "Doação";
+            } else if (tipo === 'vender') {
+                btnVender.className = "px-5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                titulo.innerText = "Anunciar Fardamento para Venda";
+                campoPreco.classList.remove('hidden');
+                modoOp.value = "Venda";
+            } else {
+                btnPesquisar.className = "px-5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                titulo.innerText = "Pesquisa de Preços e Necessidades";
+                modoOp.value = "Pesquisa";
+            }
+        }
+
+        renderizarItens();
+    </script>
+</body>
+</html>
