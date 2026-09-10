@@ -30,10 +30,11 @@
         <!-- Abas de Navegação -->
         <div class="flex justify-center mb-6">
             <div class="inline-flex flex-wrap justify-center bg-slate-200 p-1 rounded-lg gap-1">
-                <button onclick="mudarAba('doar')" id="btn-doar" class="px-4 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm">💚 Doar</button>
-                <button onclick="mudarAba('vender')" id="btn-vender" class="px-4 py-2 rounded-md font-medium text-sm transition text-slate-600">🏷️ Vender</button>
-                <button onclick="mudarAba('pesquisar')" id="btn-pesquisar" class="px-4 py-2 rounded-md font-medium text-sm transition text-slate-600">🔍 Pesquisar</button>
-                <button onclick="mudarAba('pontos')" id="btn-pontos" class="px-4 py-2 rounded-md font-medium text-sm transition text-slate-600">📍 Pontos de Coleta</button>
+                <button onclick="mudarAba('doar')" id="btn-doar" class="px-3.5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm">💚 Doar</button>
+                <button onclick="mudarAba('vender')" id="btn-vender" class="px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600">🏷️ Vender</button>
+                <button onclick="mudarAba('pesquisar')" id="btn-pesquisar" class="px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600">🔍 Pesquisar</button>
+                <button onclick="mudarAba('pontos')" id="btn-pontos" class="px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600">📍 Coleta</button>
+                <button onclick="mudarAba('lojas')" id="btn-lojas" class="px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600">🛍️ Lojas</button>
             </div>
         </div>
 
@@ -70,7 +71,7 @@
                 </div>
                 <div class="md:col-span-2">
                     <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Contato (WhatsApp)</label>
-                    <input type="text" id="contato" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: (92) 99999-9999">
+                    <input type="text" id="contato" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" placeholder="Ex: (95) 99999-9999">
                 </div>
                 <div class="md:col-span-2">
                     <button type="submit" class="w-full bg-blue-900 text-white font-medium py-2.5 rounded-lg hover:bg-blue-800 transition text-sm">Publicar na Plataforma</button>
@@ -78,7 +79,7 @@
             </form>
         </div>
 
-        <!-- Seção de Pontos de Coleta (Inicialmente oculta, aparece ao clicar na aba) -->
+        <!-- Seção de Pontos de Coleta -->
         <div id="secao-pontos" class="hidden mb-8">
             <h3 class="text-lg font-semibold text-blue-900 mb-4">📍 Escolas e Pontos Oficiais de Coleta</h3>
             <p class="text-slate-600 text-sm mb-4">Confira abaixo os endereços onde você pode entregar ou buscar doações de fardamentos escolares:</p>
@@ -89,35 +90,119 @@
                     <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Colégio Irmã Maria Teresa Parodi</h4>
                     <p class="text-xs text-slate-600">📍 Avenida Jardim - Bairro Cidade Satélite</p>
                 </div>
-
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ponto de Coleta</span>
                     <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Colégio Profª. Maria dos Prazeres Mota</h4>
                     <p class="text-xs text-slate-600">📍 R. Tambaqui, 707 - Bairro Santa Tereza</p>
                 </div>
-
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ponto de Coleta</span>
                     <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Colégio Professor Camilo Dias</h4>
                     <p class="text-xs text-slate-600">📍 Rua Tenente Guimarães, 382 – Bairro Liberdade</p>
                 </div>
-
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ponto de Coleta</span>
                     <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Colégio Vitória Mota Cruz</h4>
                     <p class="text-xs text-slate-600">📍 Rua Zacaria Mendes Ribeiro, 1344 - Bairro Paraviana</p>
                 </div>
-
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ponto de Coleta</span>
                     <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Colégio Prof. Severino G. Gomes Cavalcante</h4>
                     <p class="text-xs text-slate-600">📍 Avenida Nazaré Filgueiras, nº 2054 - Bairro Senador Hélio Campos</p>
                 </div>
-
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Ponto de Coleta</span>
                     <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Colégio Cel PM Derly Luiz Vieira Borges</h4>
                     <p class="text-xs text-slate-600">📍 Av. Getúlio Vargas, nº 4193 - Bairro Canarinho</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Lojas Credenciadas -->
+        <div id="secao-lojas" class="hidden mb-8">
+            <h3 class="text-lg font-semibold text-blue-900 mb-4">🛍️ Lojas Credenciadas (Venda de Fardamentos)</h3>
+            <p class="text-slate-600 text-sm mb-4">Confira os estabelecimentos credenciados para aquisição de fardamentos para os colégios militarizados:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Casa das Camisas</h4>
+                    <p class="text-xs text-slate-600">📍 Av. General Ataíde Teive, N. 5611, Bairro Cambará</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Alfa Stillus fardamento</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Mário Homem de Melo, 3304 - Liberdade</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Lady confecções</h4>
+                    <p class="text-xs text-slate-600">📍 R. Argentina, N 1559 - Cauamé</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Companhia Militar - Uniformes Profissionais</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Getúlio Vargas, 6078 - 1 - Centro</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Efraim Fardamentos</h4>
+                    <p class="text-xs text-slate-600">📍 R. Manoel Barbosa de Araújo, 6 - 31 de março</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Bem-Te-Vi Confecções</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Ville Roy, 7866 - São Vicente</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Malharia e Gráfica Passarinho Digital</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Gen. Ataíde Teive, 2735</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Ateliê Dutra</h4>
+                    <p class="text-xs text-slate-600">📍 Rua Antônio Pinheiro Filho, 1639, Caranã</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Lanna Uniformes</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Felinto Barbosa Monteiro, 468 - Sen. Hélio Campos</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Atêlier Miranda</h4>
+                    <p class="text-xs text-slate-600">📍 R. Doná Rute Pinheiro, 424 - Caimbé</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">coofecs</h4>
+                    <p class="text-xs text-slate-600">📍 R. Tambaqui, 895 - Santa Tereza</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Kettlen Confecções</h4>
+                    <p class="text-xs text-slate-600">📍 R. Mte. Albano, 3716 - Asa Branca</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Rosa Ateliê</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Mario Homem de Melo, N.2923, B. Liberdade</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Ponto do Militar</h4>
+                    <p class="text-xs text-slate-600">📍 Av. Silvio Botelho, 105b – Centro</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">RORAIFARDAS MALHARIA</h4>
+                    <p class="text-xs text-slate-600">📍 Rua São Pedro, Av. Centenário, 48A - Cinturão Verde</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Comércio Autorizado</span>
+                    <h4 class="font-bold text-slate-800 text-base mt-2 mb-1">Diva Ateliê Fardamentos</h4>
+                    <p class="text-xs text-slate-600">📍 R. Estrela D'álva - Raiar do Sol</p>
                 </div>
             </div>
         </div>
@@ -203,40 +288,50 @@
             const btnVender = document.getElementById('btn-vender');
             const btnPesquisar = document.getElementById('btn-pesquisar');
             const btnPontos = document.getElementById('btn-pontos');
+            const btnLojas = document.getElementById('btn-lojas');
             const titulo = document.getElementById('form-titulo');
             const campoPreco = document.getElementById('campo-preco');
             const modoOp = document.getElementById('modo-operacao');
             const secaoForm = document.getElementById('secao-formulario');
             const secaoPontos = document.getElementById('secao-pontos');
+            const secaoLojas = document.getElementById('secao-lojas');
             const secaoMuralContainer = document.getElementById('secao-mural-container');
 
             // Reset classes
-            btnDoar.className = "px-4 py-2 rounded-md font-medium text-sm transition text-slate-600";
-            btnVender.className = "px-4 py-2 rounded-md font-medium text-sm transition text-slate-600";
-            btnPesquisar.className = "px-4 py-2 rounded-md font-medium text-sm transition text-slate-600";
-            btnPontos.className = "px-4 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnDoar.className = "px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnVender.className = "px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnPesquisar.className = "px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnPontos.className = "px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            btnLojas.className = "px-3.5 py-2 rounded-md font-medium text-sm transition text-slate-600";
+            
             campoPreco.classList.add('hidden');
             secaoForm.classList.remove('hidden');
             secaoPontos.classList.add('hidden');
+            secaoLojas.classList.add('hidden');
             secaoMuralContainer.classList.remove('hidden');
 
             if (tipo === 'doar') {
-                btnDoar.className = "px-4 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                btnDoar.className = "px-3.5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
                 titulo.innerText = "Cadastrar Fardamento para Doação";
                 modoOp.value = "Doação";
             } else if (tipo === 'vender') {
-                btnVender.className = "px-4 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                btnVender.className = "px-3.5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
                 titulo.innerText = "Anunciar Fardamento para Venda";
                 campoPreco.classList.remove('hidden');
                 modoOp.value = "Venda";
             } else if (tipo === 'pesquisar') {
-                btnPesquisar.className = "px-4 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                btnPesquisar.className = "px-3.5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
                 titulo.innerText = "Cadastrar Necessidade (Pesquisa de Preço)";
                 modoOp.value = "Pesquisa";
             } else if (tipo === 'pontos') {
-                btnPontos.className = "px-4 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                btnPontos.className = "px-3.5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
                 secaoForm.classList.add('hidden');
                 secaoPontos.classList.remove('hidden');
+                secaoMuralContainer.classList.add('hidden');
+            } else if (tipo === 'lojas') {
+                btnLojas.className = "px-3.5 py-2 rounded-md font-medium text-sm transition bg-white text-blue-900 shadow-sm";
+                secaoForm.classList.add('hidden');
+                secaoLojas.classList.remove('hidden');
                 secaoMuralContainer.classList.add('hidden');
             }
         }
